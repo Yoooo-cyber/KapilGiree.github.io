@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravico - Portfolio Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        :root {
+            --primary: #A259FF;
+            --primary-light: #9F7AEA;
+            --text: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --bg-dark: #090924;
+            --bg-light: #1e1e3f;
+            --card-bg: rgba(30, 30, 63, 0.5);
+            --glass: rgba(255, 255, 255, 0.05);
+            --darker-bg: #0a0a0a;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #8a4be6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(162, 89, 255, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(162, 89, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .badge-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(30, 30, 63, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Typewriter Effect */
+        .typewriter-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter {
+            display: inline-block;
+        }
+
+        .typewriter::after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(9, 9, 36, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            border-radius: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badges {
+            margin-top: 30px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            color: var(--text);
+            transition: var(--transition);
+            font-size: 1.2rem;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(162, 89, 255, 0.5);
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            transition: var(--transition);
+        }
+
+        .social-icon:hover::after {
+            opacity: 1;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 500px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* About Section */
+        #about {
+            position: relative;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--card-bg);
+            box-shadow: 0 0 30px rgba(162, 89, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .profile-pic:hover {
+            box-shadow: 0 0 50px rgba(162, 89, 255, 0.5);
+        }
+
+        .quote {
+            font-style: italic;
+            padding: 20px;
+            border-left: 3px solid var(--primary);
+            background-color: var(--card-bg);
+            border-radius: 0 10px 10px 0;
+            margin: 30px 0;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            position: relative;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            gap: 10px;
+            background-color: var(--card-bg);
+            padding: 5px;
+            border-radius: 50px;
+        }
+
+        .tab {
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab.active {
+            background-color: var(--primary);
+        }
+
+        /* Enhanced Portfolio Grid */
+        .portfolio-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: var(--card-bg);
+            color: var(--text);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .category-btn:hover:not(.active) {
+            background-color: rgba(162, 89, 255, 0.2);
+        }
+
+        /* Portfolio Showcase */
+        .portfolio-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(162, 89, 255, 0.3);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(9, 9, 36, 0.9), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .portfolio-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-tag {
+            background-color: rgba(162, 89, 255, 0.2);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* Before/After Comparison */
+        .comparison-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 40px 0;
+        }
+
+        .comparison-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .before-image {
+            z-index: 1;
+            clip-path: polygon(0 0, var(--position, 50%) 0, var(--position, 50%) 100%, 0 100%);
+        }
+
+        .after-image {
+            z-index: 2;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary);
+            z-index: 3;
+            left: var(--position, 50%);
+            transform: translateX(-50%);
+            cursor: ew-resize;
+        }
+
+        .comparison-slider::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .comparison-slider::after {
+            content: '↔';
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Portfolio Showcase Types */
+        .portfolio-type {
+            margin-top: 80px;
+        }
+
+        .type-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .type-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+        }
+
+        .type-title {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Check Out More Section */
+        .check-more {
+            text-align: center;
+            margin: 60px 0 30px;
+        }
+
+        .check-more h3 {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Floating Check More Button */
+        .floating-check-more {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(162, 89, 255, 0.5);
+            transition: var(--transition);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .floating-check-more.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .floating-check-more:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(162, 89, 255, 0.7);
+        }
+
+        .floating-check-more i {
+            font-size: 1.5rem;
+        }
+
+        /* Image Scroller for Portfolio */
+        .scroller {
+            max-width: 100%;
+            overflow: hidden;
+            -webkit-mask: linear-gradient(90deg,
+                    transparent,
+                    white 20%,
+                    white 80%,
+                    transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            margin-bottom: 50px;
+        }
+
+        .scroller__inner {
+            padding-block: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .scroller[data-direction="right"] {
+            --_animation-direction: reverse;
+        }
+
+        .scroller[data-direction="left"] {
+            --_animation-direction: forwards;
+        }
+
+        .scroller[data-speed="fast"] {
+            --_animation-duration: 20s;
+        }
+
+        .scroller[data-speed="slow"] {
+            --_animation-duration: 60s;
+        }
+
+        .scroller__inner {
+            width: max-content;
+            flex-wrap: nowrap;
+            animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+        }
+
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-50% - 0.5rem));
+            }
+        }
+
+        .scroller img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .scroller img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Certificates Section */
+        .certificate-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background-color: var(--darker-bg);
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .certificate-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .certificate-issuer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-category {
+            margin-bottom: 30px;
+        }
+
+        .tech-stack-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tech-stack-item {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .tech-stack-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-stack-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        #contact {
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-panel {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--darker-bg);
+            color: var(--text);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(162, 89, 255, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .social-connections {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 12px 15px;
+            border-radius: 8px;
+            background-color: var(--darker-bg);
+            transition: var(--transition);
+        }
+
+        .social-item:hover {
+            background-color: rgba(162, 89, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .social-icon-large {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .social-text {
+            flex: 1;
+        }
+
+        .social-text span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .comments-list {
+            margin-top: 2rem;
+        }
+
+        .comment {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            background-color: var(--darker-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .comment-badge {
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .comment-text {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .pinned-comment {
+            border-left: 3px solid var(--primary);
+            padding-left: 15px;
+            background-color: rgba(162, 89, 255, 0.05);
+        }
+
+        .file-upload {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-upload input {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: var(--darker-bg);
+            border-radius: 8px;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--primary);
+        }
+
+        .file-upload-icon {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .file-upload-text span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Modal for project details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--bg-light);
+            max-width: 900px;
+            margin: 50px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(162, 89, 255, 0.3);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            background-color: var(--darker-bg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-tech-item {
+            background-color: rgba(162, 89, 255, 0.2);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .hero-buttons,
+            .tech-badges,
+            .social-icons {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .portfolio-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .portfolio-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .scroller img {
+                width: 250px;
+                height: 350px;
+            }
+
+            .comparison-container {
+                height: 400px;
+            }
+
+            .floating-check-more {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .scroller img {
+                width: 200px;
+                height: 300px;
+            }
+
+            .comparison-container {
+                height: 300px;
+            }
+        }
+
+        /* Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo" onclick="navigateTo('home')">Gravico</a>
+            <ul class="nav-links">
+                <li><a href="#" class="active" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#" onclick="navigateTo('about')">About</a></li>
+                <li><a href="#portfolio" onclick="navigateTo('home')">My Work</a></li>
+                <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="badge badge-outline">⚡ Ready to Innovate</div>
+                        <h1 class="hero-title">
+                            <span class="typewriter-container">
+                                <span id="typewriter-title" class="typewriter"></span>
+                            </span>
+                        </h1>
+                        <h2 class="hero-subtitle">Creative Technologist</h2>
+                        <p>Creating innovative, functional, and user-friendly digital solutions for the modern web.</p>
+
+                        <div class="tech-badges">
+                            <span class="tech-badge">Photoshop</span>
+                            <span class="tech-badge">After Effects</span>
+                            <span class="tech-badge">Premiere Pro</span>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <a href="#portfolio" class="btn btn-primary" onclick="navigateTo('home')">View Projects</a>
+                            <a href="#" class="btn btn-outline" onclick="navigateTo('contact')">Contact Me</a>
+                        </div>
+
+                        <div class="social-icons">
+                            <a href="https://www.behance.net/kapilgiri" class="social-icon"><i
+                                    class="fab fa-behance"></i></a>
+                            <a href="https://www.instagram.com/gravico_1316?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src="gg.gif" alt="Developer Illustration" class="illustration">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="hidden">Hello, I'm Kapil Giree</h2>
+
+                <div class="about-content">
+                    <div class="about-text hidden">
+                        <p>I'm a multidisciplinary creative with expertise in Graphics Designing, motion graphics, and
+                            video
+                            editing. With over 2 years of experience in digital creation, I bring a unique combination
+                            of
+                            technical skills and artistic vision to every project.</p>
+
+                        <p>My background in computer science combined with my passion for visual storytelling allows me
+                            to
+                            create engaging digital experiences that are both technically robust and aesthetically
+                            pleasing.
+                        </p>
+
+                        <div class="quote">
+                            "Technology is my canvas, and code is my brush - I create digital experiences that inspire
+                            and
+                            engage."
+                        </div>
+
+                        <div class="hero-buttons">
+                            <a href="cvv.pdf" class="btn btn-primary">Download CV</a>
+                            <a href="#portfolio" class="btn btn-outline" onclick="navigateTo('home')">View My Work</a>
+                        </div>
+                    </div>
+
+                    <div class="about-image hidden">
+                        <img src="main.jpg" alt="Profile Picture" class="profile-pic">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="hidden">My Creative Work</h2>
+                <p class="hidden" style="margin-bottom: 40px;">A showcase of my best design projects and creative work
+                </p>
+
+                <!-- Auto-scrolling image scroller -->
+                <div class="scroller hidden" data-direction="left" data-speed="slow">
+                    <div class="scroller__inner">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
+                            alt="Sushi Poster Design">
+                        <img src="https://cdn.dribbble.com/userupload/42714732/file/original-72fec38408e4d5a66f28a70a2987607c.jpg?resize=400x0"
+                            alt="Restaurant Menu Design">
+                        <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
+                            alt="Burger Poster">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/burger-flyer-design-template-1835cfff5285e0e7c5b22a9d179f4044_screen.jpg?ts=1705849253"
+                            alt="Burger Flyer">
+                        <img src="https://img.pikbest.com/origin/05/96/80/773pIkbEsTeyB.jpg!bw700" alt="Food Poster">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/italian-chicken-chowmein-noodles-food-post-on-design-template-f8826b968e192413d712d0e2ce496050_screen.jpg?ts=1669209982"
+                            alt="Noodles Poster">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a3ec529632909.55fc107b84b8e.jpg"
+                            alt="Food Packaging">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea356845515.59b27e3247a57.jpg"
+                            alt="Restaurant Branding">
+                    </div>
+                </div>
+
+                <!-- Portfolio Categories -->
+                <div class="portfolio-categories hidden">
+                    <button class="category-btn active" data-category="all">All Work</button>
+                    <button class="category-btn" data-category="food">Food Posters</button>
+                    <button class="category-btn" data-category="manipulation">Photo Manipulation</button>
+                    <button class="category-btn" data-category="tech">Tech Products</button>
+                    <button class="category-btn" data-category="education">Educational</button>
+                </div>
+
+                <!-- Portfolio Showcase -->
+                <div class="portfolio-showcase hidden">
+                    <!-- Food Poster Example -->
+                    <div class="portfolio-item" data-category="food">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
+                            alt="Sushi Poster" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Sushi Restaurant Poster</h3>
+                            <p class="portfolio-description">Vibrant poster design for a premium sushi restaurant</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Photoshop</span>
+                                <span class="portfolio-tag">Illustrator</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Manipulation Example -->
+                    <div class="portfolio-item" data-category="manipulation">
+                        <img src="https://i.pinimg.com/736x/c2/09/95/c209951bf99b4ce72395a1258e805afd.jpg"
+                            alt="Photo Manipulation" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Surreal Landscape</h3>
+                            <p class="portfolio-description">Creative photo manipulation combining multiple elements</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Photoshop</span>
+                                <span class="portfolio-tag">Photography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Product Example -->
+                    <div class="portfolio-item" data-category="tech">
+                        <img src="thumbnail.jpg" alt="Tech Product" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Thumbnail For Youtubers</h3>
+                            <p class="portfolio-description">A best and attractive thumbnail for you</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Illustrator</span>
+                                <span class="portfolio-tag">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Educational Example -->
+                    <div class="portfolio-item" data-category="education">
+                        <img src="insta.jpg" alt="Educational Poster" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Social Media POst</h3>
+                            <p class="portfolio-description">Social Media Post for your Instagram</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Illustrator</span>
+                                <span class="portfolio-tag">Photoshop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Another Food Poster -->
+                    <div class="portfolio-item" data-category="food">
+                        <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
+                            alt="Burger Poster" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Burger Promo Poster</h3>
+                            <p class="portfolio-description">Appetizing poster for a burger restaurant promotion</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Photoshop</span>
+                                <span class="portfolio-tag">Illustrator</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Another Photo Manipulation -->
+                    <div class="portfolio-item" data-category="manipulation">
+                        <img src="https://i.pinimg.com/736x/6b/16/8b/6b168bdcb4f6af5472647376fe8e6791.jpg"
+                            alt="Creative Manipulation" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">Fantasy Portrait</h3>
+                            <p class="portfolio-description">Magical portrait with surreal elements</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Photoshop</span>
+                                <span class="portfolio-tag">Digital Art</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+
+                <!-- Food Poster Section -->
+                <div class="portfolio-type hidden">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="type-title">Food Poster Designs</h3>
+                    </div>
+
+                    <div class="portfolio-showcase">
+                        <div class="portfolio-item" data-category="food">
+                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
+                                alt="Sushi Poster" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Sushi Restaurant Poster</h3>
+                                <p class="portfolio-description">Vibrant poster design for a premium sushi restaurant
+                                </p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                    <span class="portfolio-tag">Illustrator</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="food">
+                            <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
+                                alt="Burger Poster" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Burger Promo Poster</h3>
+                                <p class="portfolio-description">Appetizing poster for a burger restaurant promotion</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                    <span class="portfolio-tag">Illustrator</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="food">
+                            <img src="https://img.pikbest.com/origin/05/96/80/773pIkbEsTeyB.jpg!bw700" alt="Food Poster"
+                                class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Restaurant Menu Design</h3>
+                                <p class="portfolio-description">Modern menu design for a fine dining restaurant</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Illustrator</span>
+                                    <span class="portfolio-tag">InDesign</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+                <!-- Photo Manipulation Section -->
+                <div class="portfolio-type hidden">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="type-title">Photo Manipulations</h3>
+                    </div>
+
+                    <div class="portfolio-showcase">
+                        <div class="portfolio-item" data-category="manipulation">
+                            <img src="https://i.pinimg.com/736x/c2/09/95/c209951bf99b4ce72395a1258e805afd.jpg"
+                                alt="Photo Manipulation" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Surreal Landscape</h3>
+                                <p class="portfolio-description">Creative photo manipulation combining multiple elements
+                                </p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                    <span class="portfolio-tag">Photography</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="manipulation">
+                            <img src="https://i.pinimg.com/736x/6b/16/8b/6b168bdcb4f6af5472647376fe8e6791.jpg"
+                                alt="Creative Manipulation" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Fantasy Portrait</h3>
+                                <p class="portfolio-description">Magical portrait with surreal elements</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                    <span class="portfolio-tag">Digital Art</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="manipulation">
+                            <img src="https://www.jotform.com/blog/wp-content/uploads/2022/02/lightbulb-g249fa1220_1920.jpg"
+                                alt="Creative Manipulation" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Conceptual Art</h3>
+                                <p class="portfolio-description">Thought-provoking conceptual artwork</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                <!-- Tech Products Section -->
+                <div class="portfolio-type hidden">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3 class="type-title">Tech Product Designs</h3>
+                    </div>
+
+                    <div class="portfolio-showcase">
+                        <div class="portfolio-item" data-category="tech">
+                            <img src="https://img.freepik.com/free-psd/new-smartphone-social-media-story-design-template_47987-25437.jpg?semt=ais_hybrid&w=740&q=80"
+                                alt="Tech Product" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Smartphone Ad Design</h3>
+                                <p class="portfolio-description">Product advertisement for a new smartphone</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="tech">
+                            <img src="https://i.pinimg.com/1200x/ea/81/ab/ea81abbd0c34c69ac77b1eb857b04374.jpg"
+                                alt="Tech Product" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Laptop Promo Design</h3>
+                                <p class="portfolio-description">Marketing materials for a new laptop line</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="tech">
+                            <img src="https://i.pinimg.com/736x/d6/15/46/d61546cfefc66846438d4ad8ccc46e29.jpg"
+                                alt="Tech Product" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Smartwatch UI</h3>
+                                <p class="portfolio-description">User interface design for a smartwatch</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            
+
+                <!-- Educational Section -->
+                <div class="portfolio-type hidden">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="type-title">Educational Designs</h3>
+                    </div>
+
+                    <div class="portfolio-showcase">
+                        <div class="portfolio-item" data-category="education">
+                            <img src="institute.jpg" alt="Educational Poster" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">For Institute</h3>
+                                <p class="portfolio-description">Informative poster For Institute</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Illustrator</span>
+                                    <span class="portfolio-tag">InDesign</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="education">
+                            <img src="consultancy.jpg" alt="Educational Poster" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">For Consultancy</h3>
+                                <p class="portfolio-description">Poster Briting the Future For you</p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">Photoshop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="education">
+                            <img src="adaptor.jpg" alt="Educational Poster" class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Event Post</h3>
+                                <p class="portfolio-description"></p>
+                                <div class="portfolio-tags">
+                                    <span class="portfolio-tag">PhotoShop</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Check Out More Button -->
+                    <div class="check-more hidden">
+                        <h3>Want to see more of my work?</h3>
+                        <a href="https://www.instagram.com/gravico_1316?igsh=YXAzamcwMW14OG9w" class="btn btn-primary">
+                            View Full Portfolio
+                            <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                        </a>
+                    </div>
+
+
+                    <!-- Contact Section -->
+                    <section id="contact">
+                        <div class="container">
+                            <h2 class="hidden">Get In Touch</h2>
+                            <p class="hidden">Feel free to reach out through the form or social media below</p>
+
+                            <div class="contact-grid">
+                                <!-- Left Panel - Contact Form -->
+                                <div class="contact-panel hidden">
+                                    <h3>Contact Me</h3>
+                                    <p>Have something to discuss? Send me a message and let's talk.</p>
+
+                                    <form class="contact-form">
+                                        <div class="form-group">
+                                            <label for="name">Your Name</label>
+                                            <input type="text" id="name" placeholder="Enter your name" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email">Your Email</label>
+                                            <input type="email" id="email" placeholder="Enter your email" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message">Your Message</label>
+                                            <textarea id="message" placeholder="Write your message here..."
+                                                required></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </form>
+
+                                    <div class="social-connections">
+                                        <h4>Connect With Me</h4>
+
+                                        <a href="https://www.behance.net/kapilgiri" class="social-item">
+                                            <div class="social-icon-large">
+                                                <i class="fab fa-behance"></i>
+                                            </div>
+                                            <div class="social-text">
+                                                Behance
+                                                <span>View my designs</span>
+                                            </div>
+                                        </a>
+
+                                        <a href="https://www.instagram.com/gravico_1316?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                            class="social-item">
+                                            <div class="social-icon-large">
+                                                <i class="fab fa-instagram"></i>
+                                            </div>
+                                            <div class="social-text">
+                                                Instagram
+                                                <span>See my work</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Right Panel - Comments Section -->
+                                <div class="contact-panel hidden">
+                                    <h3>Comments</h3>
+                                    <p>Have a question? Send me a message and I'll reply as soon as possible.</p>
+
+                                    <form class="comment-form">
+                                        <div class="form-group">
+                                            <label for="comment-name">Name</label>
+                                            <input type="text" id="comment-name" placeholder="Enter your name" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="comment-message">Message</label>
+                                            <textarea id="comment-message" placeholder="Write your message here..."
+                                                required></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                                    </form>
+
+                                    <div class="comments-list">
+                                        <!-- Pinned Comment -->
+                                        <div class="comment pinned-comment">
+                                            <div class="comment-avatar">Gv</div>
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <div class="comment-author">Gravico</div>
+                                                    <div class="comment-time">2 days ago</div>
+                                                    <div class="comment-badge">Admin</div>
+                                                </div>
+                                                <div class="comment-text">
+                                                    Thanks for visiting my portfolio! I'm currently available for
+                                                    freelance
+                                                    projects and collaborations. Feel free to reach out if you have any
+                                                    questions or if you'd like to work together.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Comment 1 -->
+                                        <div class="comment">
+                                            <div class="comment-avatar">JD</div>
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <div class="comment-author">John Doe</div>
+                                                    <div class="comment-time">1 week ago</div>
+                                                </div>
+                                                <div class="comment-text">
+                                                    Amazing work on the project! The visuals really make stand out. How
+                                                    long did
+                                                    it take you to develop this skill ?
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Comment 2 -->
+                                        <div class="comment">
+                                            <div class="comment-avatar">SA</div>
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    <div class="comment-author">Sarah A.</div>
+                                                    <div class="comment-time">2 weeks ago</div>
+                                                </div>
+                                                <div class="comment-text">
+                                                    I love your motion graphics work! Do you offer video editing
+                                                    services for
+                                                    YouTube channels? I'd love to discuss a potential collaboration.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Floating Check More Button -->
+                <div class="floating-check-more" onclick="navigateTo('home')">
+                    <i class="fas fa-eye"></i>
+                </div>
+
+                <footer>
+                    © 2025 Gravico™. All Rights Reserved.
+                </footer>
+
+                <!-- Project Modal -->
+                <div id="projectModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeModal()">&times;</span>
+                        <img id="modalImage" class="modal-image" src="" alt="">
+                        <div class="modal-body">
+                            <h2 id="modalTitle" class="modal-title"></h2>
+                            <p id="modalDescription" class="modal-description"></p>
+                            <div class="modal-tech">
+                                <!-- Tech tags will be added here by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Navigation between pages
+                    function navigateTo(pageId) {
+                        // Hide all pages
+                        document.querySelectorAll('.page').forEach(page => {
+                            page.classList.remove('active');
+                        });
+
+                        // Show selected page
+                        document.getElementById(`${pageId}-page`).classList.add('active');
+
+                        // Update active nav link
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+
+                        // Find and activate the corresponding nav link
+                        const navLinks = document.querySelectorAll('.nav-links a');
+                        for (let link of navLinks) {
+                            if (link.textContent.toLowerCase() === pageId ||
+                                (link.textContent === 'Home' && pageId === 'home')) {
+                                link.classList.add('active');
+                                break;
+                            }
+                        }
+
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+
+                        // Close mobile menu if open
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+
+                    // Navbar scroll effect
+                    const navbar = document.querySelector('.navbar');
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('scrolled');
+                        } else {
+                            navbar.classList.remove('scrolled');
+                        }
+                    });
+
+                    // Mobile menu toggle
+                    const hamburger = document.querySelector('.hamburger');
+                    const navLinks = document.querySelector('.nav-links');
+
+                    hamburger.addEventListener('click', () => {
+                        navLinks.classList.toggle('active');
+                        hamburger.classList.toggle('active');
+                    });
+
+                    // Close mobile menu when clicking a link
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.addEventListener('click', () => {
+                            navLinks.classList.remove('active');
+                            hamburger.classList.remove('active');
+                        });
+                    });
+
+                    // Scroll reveal animation
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('show');
+                            }
+                        });
+                    });
+
+                    const hiddenElements = document.querySelectorAll('.hidden');
+                    hiddenElements.forEach(el => observer.observe(el));
+
+                    // Active link highlighting
+                    const sections = document.querySelectorAll('section');
+                    const navItems = document.querySelectorAll('.nav-links a');
+
+                    window.addEventListener('scroll', () => {
+                        let current = '';
+
+                        sections.forEach(section => {
+                            const sectionTop = section.offsetTop;
+                            const sectionHeight = section.clientHeight;
+
+                            if (pageYOffset >= sectionTop - 300) {
+                                current = section.getAttribute('id');
+                            }
+                        });
+
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === `#${current}`) {
+                                item.classList.add('active');
+                            }
+                        });
+                    });
+
+                    // Portfolio category filtering
+                    const categoryBtns = document.querySelectorAll('.category-btn');
+                    const projectCards = document.querySelectorAll('.portfolio-item');
+
+                    categoryBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            // Update active category button
+                            categoryBtns.forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+
+                            const category = btn.getAttribute('data-category');
+
+                            // Filter projects
+                            projectCards.forEach(card => {
+                                if (category === 'all' || card.getAttribute('data-category') === category) {
+                                    card.style.display = 'block';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+
+                    // Typewriter effect for full titles
+                    const typewriterElement = document.getElementById('typewriter-title');
+                    const professions = [
+                        'Video Editor',
+                        'Motion Designer',
+                        'Graphics Designer'
+                    ];
+                    let professionIndex = 0;
+                    let charIndex = 0;
+                    let isDeleting = false;
+                    let isEnd = false;
+
+                    function typeWriter() {
+                        const currentProfession = professions[professionIndex];
+
+                        if (isDeleting) {
+                            typewriterElement.textContent = currentProfession.substring(0, charIndex - 1);
+                            charIndex--;
+                        } else {
+                            typewriterElement.textContent = currentProfession.substring(0, charIndex + 1);
+                            charIndex++;
+                        }
+
+                        if (!isDeleting && charIndex === currentProfession.length) {
+                            isEnd = true;
+                            isDeleting = true;
+                            setTimeout(typeWriter, 2000); // Pause at end of word
+                        } else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            professionIndex = (professionIndex + 1) % professions.length;
+                            setTimeout(typeWriter, 500); // Pause before typing next word
+                        } else {
+                            const typingSpeed = isDeleting ? 50 : 150;
+                            setTimeout(typeWriter, typingSpeed);
+                        }
+                    }
+
+                    // Start the typewriter effect
+                    setTimeout(typeWriter, 1000);
+
+                    // Simple form validation
+                    document.querySelectorAll('form').forEach(form => {
+                        form.addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            // Get all required inputs
+                            const inputs = this.querySelectorAll('input[required], textarea[required]');
+                            let isValid = true;
+
+                            inputs.forEach(input => {
+                                if (!input.value.trim()) {
+                                    input.style.borderColor = '#ff4757';
+                                    isValid = false;
+                                } else {
+                                    input.style.borderColor = '';
+                                }
+                            });
+
+                            if (isValid) {
+                                // In a real app, you would send the form data to a server here
+                                alert('Form submitted successfully!');
+                                this.reset();
+                            } else {
+                                alert('Please fill in all required fields.');
+                            }
+                        });
+                    });
+
+                    // File upload display
+                    document.querySelectorAll('.file-upload input').forEach(input => {
+                        input.addEventListener('change', function () {
+                            const label = this.closest('.file-upload-label');
+                            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+                            label.querySelector('.file-upload-text span').textContent = fileName;
+                        });
+                    });
+
+                    // Project Modal Functions
+                    function openModal(title, imageSrc, description, tags) {
+                        const modal = document.getElementById('projectModal');
+                        const modalTitle = document.getElementById('modalTitle');
+                        const modalImage = document.getElementById('modalImage');
+                        const modalDescription = document.getElementById('modalDescription');
+                        const modalTech = document.querySelector('.modal-tech');
+
+                        modalTitle.textContent = title;
+                        modalImage.src = imageSrc;
+                        modalImage.alt = title;
+                        modalDescription.textContent = description;
+
+                        // Clear existing tags
+                        modalTech.innerHTML = '';
+
+                        // Add new tags
+                        tags.forEach(tag => {
+                            const tagElement = document.createElement('span');
+                            tagElement.className = 'modal-tech-item';
+                            tagElement.textContent = tag;
+                            modalTech.appendChild(tagElement);
+                        });
+
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeModal() {
+                        const modal = document.getElementById('projectModal');
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+
+                    // Close modal when clicking outside the content
+                    window.addEventListener('click', function (event) {
+                        const modal = document.getElementById('projectModal');
+                        if (event.target === modal) {
+                            closeModal();
+                        }
+                    });
+
+                    // Before/After Comparison Slider
+                    function setupComparisonSliders() {
+                        const sliders = document.querySelectorAll('.comparison-slider');
+
+                        sliders.forEach(slider => {
+                            const container = slider.parentElement;
+                            const beforeImage = container.querySelector('.before-image');
+                            let isDragging = false;
+
+                            function handleMove(e) {
+                                if (!isDragging) return;
+
+                                const containerRect = container.getBoundingClientRect();
+                                let x = e.clientX - containerRect.left;
+
+                                // Keep within bounds
+                                x = Math.max(0, Math.min(x, containerRect.width));
+
+                                // Calculate percentage
+                                const percent = (x / containerRect.width) * 100;
+
+                                // Update slider position and image clip
+                                slider.style.left = `${percent}%`;
+                                beforeImage.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+                            }
+
+                            slider.addEventListener('mousedown', () => {
+                                isDragging = true;
+                            });
+
+                            window.addEventListener('mousemove', handleMove);
+                            window.addEventListener('mouseup', () => {
+                                isDragging = false;
+                            });
+
+                            // Touch support
+                            slider.addEventListener('touchstart', () => {
+                                isDragging = true;
+                            });
+
+                            window.addEventListener('touchmove', (e) => {
+                                handleMove(e.touches[0]);
+                            });
+
+                            window.addEventListener('touchend', () => {
+                                isDragging = false;
+                            });
+                        });
+                    }
+
+                    // Floating button visibility
+                    function handleFloatingButton() {
+                        const floatingBtn = document.querySelector('.floating-check-more');
+                        const portfolioSection = document.getElementById('portfolio');
+                        const portfolioRect = portfolioSection.getBoundingClientRect();
+
+                        if (window.scrollY > portfolioRect.top + 300) {
+                            floatingBtn.classList.add('visible');
+                        } else {
+                            floatingBtn.classList.remove('visible');
+                        }
+                    }
+
+                    // Initialize the page (show home page by default)
+                    document.addEventListener('DOMContentLoaded', function () {
+                        navigateTo('home');
+                        setupComparisonSliders();
+
+                        // Add click handlers for portfolio items
+                        document.querySelectorAll('.portfolio-item').forEach(item => {
+                            item.addEventListener('click', function () {
+                                const title = this.querySelector('.portfolio-title').textContent;
+                                const imageSrc = this.querySelector('.portfolio-image').src;
+                                const description = this.querySelector('.portfolio-description').textContent;
+                                const tags = Array.from(this.querySelectorAll('.portfolio-tag')).map(tag => tag.textContent);
+
+                                openModal(title, imageSrc, description, tags);
+                            });
+                        });
+
+                        // Handle floating button visibility
+                        window.addEventListener('scroll', handleFloatingButton);
+                        handleFloatingButton(); // Initial check
+                    });
+                </script>
+</body>
+
+</html>
