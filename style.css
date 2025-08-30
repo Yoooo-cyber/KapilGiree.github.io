@@ -1,0 +1,180 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0F051D, #071739);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar a {
+  color: #ccc;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.navbar a.active, .navbar a:hover {
+  color: #9F7AEA;
+  border-bottom: 2px solid #9F7AEA;
+}
+
+.logo {
+  font-weight: bold;
+  color: #9F7AEA;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 3rem 4rem;
+  min-height: 100vh;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-text h1 span {
+  color: #A259FF;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #aaa;
+}
+
+.skills span {
+  background: #1e1e2e;
+  margin: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cta .btn {
+  background: #A259FF;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.cta .btn.outline {
+  background: transparent;
+  border: 1px solid #A259FF;
+}
+
+.socials i {
+  margin: 1rem 1rem 0 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hero-image img {
+  width: 400px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* About */
+.about {
+  padding: 5rem 3rem;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-photo img {
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #A259FF;
+}
+
+blockquote {
+  margin: 1rem 0;
+  font-style: italic;
+  color: #bbb;
+}
+
+/* Portfolio */
+.portfolio {
+  padding: 5rem 3rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  background: #1e1e2e;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 8px;
+}
+
+.tab.active {
+  background: #A259FF;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.project-card {
+  background: #1e1e2e;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  color: #A259FF;
+  text-decoration: none;
+}

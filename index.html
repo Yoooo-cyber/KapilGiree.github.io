@@ -4,21 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravico - Portfolio Website</title>
+    <title>Kapil Giri - Creative Designer & Video Editor | Portfolio</title>
+    <meta name="description"
+        content="Kapil Giri is a professional graphics designer, video editor, and motion graphics artist with expertise in Photoshop, After Effects, and Premiere Pro.">
+    <meta name="keywords"
+        content="Kapil Giri, Kapil Giree, graphics designer, video editor, motion graphics, Photoshop, After Effects, Premiere Pro, Nepal designer, KapilBlogs">
+    <meta name="author" content="Kapil Giri">
+    <meta property="og:title" content="Kapil Giri - Creative Designer & Video Editor">
+    <meta property="og:description" content="Professional portfolio of Kapil Giri, creative designer and video editor">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Global Styles */
         :root {
             --primary: #A259FF;
             --primary-light: #9F7AEA;
@@ -43,6 +49,7 @@
             background-attachment: fixed;
             position: relative;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         body::before {
@@ -188,33 +195,174 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
         }
 
-        /* Typewriter Effect */
-        .typewriter-container {
-            display: inline-block;
+        /* Landing Page Styles */
+        #landing-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            animation: fadeOut 0.8s ease-in-out 2s forwards;
+            overflow: hidden;
+        }
+
+        .landing-content {
+            text-align: center;
+            padding: 2rem;
             position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
 
-        .typewriter {
+        .landing-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            text-shadow: 0 0 20px rgba(162, 89, 255, 0.5);
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+
+        .landing-text span {
             display: inline-block;
         }
 
-        .typewriter::after {
-            content: "|";
-            position: absolute;
-            right: -8px;
-            animation: blink 0.7s infinite;
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 3.5rem 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out 0.8s forwards;
         }
 
-        @keyframes blink {
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
 
-            0%,
-            100% {
-                opacity: 1;
-            }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(162, 89, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            box-shadow:
+                0 10px 20px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-            50% {
-                opacity: 0;
-            }
+        .icon-circle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg,
+                    rgba(162, 89, 255, 0.2),
+                    rgba(122, 96, 220, 0.1),
+                    rgba(162, 89, 255, 0.2));
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .icon-circle i {
+            font-size: 1.4rem;
+            color: var(--primary);
+            transition: var(--transition);
+            text-shadow: 0 0 12px rgba(162, 89, 255, 0.6);
+        }
+
+        .icon-item:hover .icon-circle {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(162, 89, 255, 0.15);
+            box-shadow:
+                0 15px 30px rgba(162, 89, 255, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .icon-item:hover .icon-circle i {
+            color: var(--text);
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .icon-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 0.8rem;
+            background: rgba(30, 30, 63, 0.3);
+            padding: 4px 8px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            white-space: nowrap;
+        }
+
+        .landing-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            opacity: 0.4;
+            filter: blur(50px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 250px;
+            height: 250px;
+            top: 15%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 180px;
+            height: 180px;
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 25%;
+            animation-delay: 4s;
         }
 
         /* Navbar */
@@ -311,7 +459,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            border-radius: 2;
+            z-index: 2;
         }
 
         .hero-text {
@@ -380,6 +528,7 @@
             opacity: 0;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             transition: var(--transition);
+            animation: pulse 2s infinite;
         }
 
         .social-icon:hover::after {
@@ -404,25 +553,7 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
         /* About Section */
-        #about {
-            position: relative;
-        }
-
         .about-content {
             display: flex;
             align-items: center;
@@ -463,15 +594,12 @@
         }
 
         /* Portfolio Section */
-        #portfolio {
-            position: relative;
-        }
-
         .portfolio-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .portfolio-tabs {
@@ -555,6 +683,7 @@
 
         .portfolio-item:hover .portfolio-image {
             transform: scale(1.05);
+            filter: brightness(1.1);
         }
 
         .portfolio-overlay {
@@ -600,6 +729,81 @@
             border-radius: 50px;
             font-size: 0.7rem;
             font-weight: 500;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(162, 89, 255, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .blog-read-more:hover {
+            gap: 10px;
         }
 
         /* Before/After Comparison */
@@ -701,6 +905,7 @@
             margin-bottom: 20px;
             color: var(--text-secondary);
             font-weight: 400;
+            font-size: 1.5rem;
         }
 
         /* Floating Check More Button */
@@ -819,11 +1024,17 @@
             background-color: var(--darker-bg);
             border-radius: 5px;
             margin-bottom: 15px;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.05);
         }
 
         .certificate-title {
             font-size: 1.2rem;
             margin-bottom: 10px;
+            color: var(--text);
         }
 
         .certificate-issuer {
@@ -864,10 +1075,6 @@
         }
 
         /* Contact Section */
-        #contact {
-            position: relative;
-        }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -961,6 +1168,9 @@
 
         .comments-list {
             margin-top: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
         }
 
         .comment {
@@ -992,11 +1202,12 @@
             display: flex;
             align-items: center;
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .comment-author {
             font-weight: 600;
-            margin-right: 10px;
         }
 
         .comment-time {
@@ -1010,7 +1221,6 @@
             font-size: 0.7rem;
             padding: 2px 8px;
             border-radius: 4px;
-            margin-left: 10px;
         }
 
         .comment-text {
@@ -1037,6 +1247,7 @@
             top: 0;
             left: 0;
             cursor: pointer;
+            z-index: 2;
         }
 
         .file-upload-label {
@@ -1120,11 +1331,13 @@
         .modal-title {
             font-size: 2rem;
             margin-bottom: 15px;
+            color: var(--text);
         }
 
         .modal-description {
             margin-bottom: 20px;
             line-height: 1.7;
+            color: var(--text-secondary);
         }
 
         .modal-tech {
@@ -1152,6 +1365,112 @@
             display: block;
         }
 
+        /* Typewriter Effect */
+        .typewriter-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter {
+            display: inline-block;
+        }
+
+        .typewriter::after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            animation: blink 0.7s infinite;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Blog Detail Page Styles */
+        .blog-detail-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .blog-detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blog-detail-section {
+            margin-bottom: 40px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .highlight-text {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .blog-detail-image-small {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-to-blog:hover {
+            gap: 10px;
+        }
+
+        /* Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -1162,11 +1481,84 @@
             }
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                visibility: visible;
+                transform: scale(1);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+                transform: scale(1.08);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes rgbMovement {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(20px, 20px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(0, 40px) scale(1.2);
+            }
+
+            75% {
+                transform: translate(-20px, 20px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(162, 89, 255, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(162, 89, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(162, 89, 255, 0);
+            }
         }
 
         /* Responsive Styles */
@@ -1195,8 +1587,16 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .blog-detail-image {
+                height: 300px;
             }
         }
 
@@ -1243,6 +1643,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
             .scroller img {
                 width: 250px;
                 height: 350px;
@@ -1257,6 +1661,31 @@
                 height: 50px;
                 bottom: 20px;
                 right: 20px;
+            }
+
+            .blog-detail-image {
+                height: 250px;
+            }
+
+            .landing-text {
+                font-size: 2.8rem;
+            }
+
+            .icons-container {
+                gap: 1rem;
+            }
+
+            .icon-circle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .icon-circle i {
+                font-size: 1.2rem;
+            }
+
+            .icon-label {
+                font-size: 0.7rem;
             }
         }
 
@@ -1289,32 +1718,94 @@
             .comparison-container {
                 height: 300px;
             }
-        }
 
-        /* Animations */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s;
-        }
+            .blog-detail-image {
+                height: 200px;
+            }
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
+            .blog-detail-section {
+                padding: 20px;
+            }
+
+            .landing-text {
+                font-size: 2.3rem;
+            }
+
+            .icons-container {
+                gap: 0.6rem;
+            }
+
+            .icon-circle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .icon-circle i {
+                font-size: 1.1rem;
+            }
+
+            .icon-label {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Landing Page -->
+    <div id="landing-page">
+        <div class="landing-background">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <div class="landing-content">
+            <h1 class="landing-text">
+                <span class="gradient-text">Hi, I'm</span> Kapil Giri
+            </h1>
+
+            <div class="icons-container">
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <span class="icon-label">Graphics Designer</span>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="icon-label">Web Developer</span>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <span class="icon-label">Motion Graphics</span>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <span class="icon-label">Video Editor</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo" onclick="navigateTo('home')">Gravico</a>
+            <a href="#" class="logo" onclick="navigateTo('home')">Kapil Giri</a>
             <ul class="nav-links">
                 <li><a href="#" class="active" onclick="navigateTo('home')">Home</a></li>
-                <li><a href="#" onclick="navigateTo('about')">About</a></li>
-                <li><a href="#portfolio" onclick="navigateTo('home')">My Work</a></li>
-                <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+                <li><a href="#about" onclick="navigateTo('about')">About</a></li>
+                <li><a href="#portfolio" onclick="navigateTo('portfolio')">Portfolio</a></li>
+                <li><a href="#blog-preview" onclick="navigateTo('blog')">Blog</a></li>
+                <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -1328,6 +1819,14 @@
     <div id="home-page" class="page active">
         <!-- Hero Section -->
         <section id="hero">
+            <div class="rgb-background">
+                <div class="rgb-circle"></div>
+                <div class="rgb-circle"></div>
+                <div class="rgb-circle"></div>
+                <div class="rgb-circle"></div>
+                <div class="rgb-circle"></div>
+                <div class="rgb-circle"></div>
+            </div>
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
@@ -1347,8 +1846,9 @@
                         </div>
 
                         <div class="hero-buttons">
-                            <a href="#portfolio" class="btn btn-primary" onclick="navigateTo('home')">View Projects</a>
-                            <a href="#" class="btn btn-outline" onclick="navigateTo('contact')">Contact Me</a>
+                            <a href="#portfolio" class="btn btn-primary" onclick="navigateTo('portfolio')">View
+                                Projects</a>
+                            <a href="#contact" class="btn btn-outline" onclick="navigateTo('contact')">Contact Me</a>
                         </div>
 
                         <div class="social-icons">
@@ -1360,7 +1860,7 @@
                     </div>
 
                     <div class="hero-image">
-                        <img src="gg.gif" alt="Developer Illustration" class="illustration">
+                        <img src="gg.gif" alt="Kapil Giri - Creative Designer" class="illustration">
                     </div>
                 </div>
             </div>
@@ -1369,36 +1869,34 @@
         <!-- About Section -->
         <section id="about">
             <div class="container">
-                <h2 class="hidden">Hello, I'm Kapil Giree</h2>
+                <h2 class="hidden">Hello, I'm Kapil Giri</h2>
 
                 <div class="about-content">
                     <div class="about-text hidden">
                         <p>I'm a multidisciplinary creative with expertise in Graphics Designing, motion graphics, and
-                            video
-                            editing. With over 2 years of experience in digital creation, I bring a unique combination
-                            of
-                            technical skills and artistic vision to every project.</p>
+                            video editing. With over 2 years of experience in digital creation, I bring a unique
+                            combination
+                            of technical skills and artistic vision to every project.</p>
 
                         <p>My background in computer science combined with my passion for visual storytelling allows me
-                            to
-                            create engaging digital experiences that are both technically robust and aesthetically
+                            to create engaging digital experiences that are both technically robust and aesthetically
                             pleasing.
                         </p>
 
                         <div class="quote">
                             "Technology is my canvas, and code is my brush - I create digital experiences that inspire
-                            and
-                            engage."
+                            and engage."
                         </div>
 
                         <div class="hero-buttons">
-                            <a href="cvv.pdf" class="btn btn-primary">Download CV</a>
-                            <a href="#portfolio" class="btn btn-outline" onclick="navigateTo('home')">View My Work</a>
+                            <a href="#" class="btn btn-primary">Download CV</a>
+                            <a href="#portfolio" class="btn btn-outline" onclick="navigateTo('portfolio')">View My
+                                Work</a>
                         </div>
                     </div>
 
                     <div class="about-image hidden">
-                        <img src="main.jpg" alt="Profile Picture" class="profile-pic">
+                        <img src="main.jpg" alt="Kapil Giri Profile Picture" class="profile-pic">
                     </div>
                 </div>
             </div>
@@ -1414,21 +1912,19 @@
                 <!-- Auto-scrolling image scroller -->
                 <div class="scroller hidden" data-direction="left" data-speed="slow">
                     <div class="scroller__inner">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
-                            alt="Sushi Poster Design">
-                        <img src="https://cdn.dribbble.com/userupload/42714732/file/original-72fec38408e4d5a66f28a70a2987607c.jpg?resize=400x0"
-                            alt="Restaurant Menu Design">
-                        <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
-                            alt="Burger Poster">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/burger-flyer-design-template-1835cfff5285e0e7c5b22a9d179f4044_screen.jpg?ts=1705849253"
-                            alt="Burger Flyer">
-                        <img src="https://img.pikbest.com/origin/05/96/80/773pIkbEsTeyB.jpg!bw700" alt="Food Poster">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/italian-chicken-chowmein-noodles-food-post-on-design-template-f8826b968e192413d712d0e2ce496050_screen.jpg?ts=1669209982"
-                            alt="Noodles Poster">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a3ec529632909.55fc107b84b8e.jpg"
-                            alt="Food Packaging">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea356845515.59b27e3247a57.jpg"
-                            alt="Restaurant Branding">
+                        <img src="https://i.pinimg.com/736x/14/e1/b0/14e1b04d2f6a3bd6d409f85a1ad08164.jpg"
+                            alt="Design Project 1">
+                        <img src="https://i.pinimg.com/736x/2d/01/19/2d011900cf639f36d52a31e18f3100cd.jpg"
+                            alt="Design Project 2">
+                        <img src="https://i.pinimg.com/736x/44/96/41/449641d5a45172f9c5660f964b202cd5.jpg"
+                            alt="Design Project 3">
+                        <img src="https://i.pinimg.com/1200x/6f/ce/4e/6fce4e5926314e19fcba686cc3cd6ae4.jpg"
+                            alt="Design Project 4">
+                        <img src="https://graphicdesignjunction.com/wp-content/uploads/2024/01/photo-manipulation-25.jpg"
+                            alt="Design Project 5">
+                        <img src="fathers.jpg" alt="Design Project 6">
+                        <img src="adaptor.jpg" alt="Design Project 7">
+                        <img src="kapilgireee_cleanup.jpg" alt="Design Project 8">
                     </div>
                 </div>
 
@@ -1445,11 +1941,11 @@
                 <div class="portfolio-showcase hidden">
                     <!-- Food Poster Example -->
                     <div class="portfolio-item" data-category="food">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
-                            alt="Sushi Poster" class="portfolio-image">
+                        <img src="https://img.pikbest.com/templates/2022/11/29122219/creative-food-poster_46459.jpg!w700wp"
+                            alt="Food Poster" class="portfolio-image">
                         <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Sushi Restaurant Poster</h3>
-                            <p class="portfolio-description">Vibrant poster design for a premium sushi restaurant</p>
+                            <h3 class="portfolio-title">Creative Food Poster Design</h3>
+                            <p class="portfolio-description">Vibrant poster design for a premium restaurant</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Photoshop</span>
                                 <span class="portfolio-tag">Illustrator</span>
@@ -1459,10 +1955,10 @@
 
                     <!-- Photo Manipulation Example -->
                     <div class="portfolio-item" data-category="manipulation">
-                        <img src="https://i.pinimg.com/736x/c2/09/95/c209951bf99b4ce72395a1258e805afd.jpg"
+                        <img src="https://rafya.id/wp-content/uploads/2025/01/Tortoise-Surrealism-Underwater-Photo-Manipulation-Photoshop-Tutorial.jpg"
                             alt="Photo Manipulation" class="portfolio-image">
                         <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Surreal Landscape</h3>
+                            <h3 class="portfolio-title">Tortoise Surrealism Underwater Photo Manipulation</h3>
                             <p class="portfolio-description">Creative photo manipulation combining multiple elements</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Photoshop</span>
@@ -1473,751 +1969,753 @@
 
                     <!-- Tech Product Example -->
                     <div class="portfolio-item" data-category="tech">
-                        <img src="thumbnail.jpg" alt="Tech Product" class="portfolio-image">
+                        <img src="https://i.pinimg.com/736x/36/6d/f3/366df3199138fdc920d727fea8c696f6.jpg"
+                            alt="Tech Product" class="portfolio-image">
                         <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Thumbnail For Youtubers</h3>
-                            <p class="portfolio-description">A best and attractive thumbnail for you</p>
+                            <h3 class="portfolio-title">Laptop Poster Desings</h3>
+                            <p class="portfolio-description">Modern tech product advertisement design</p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Illustrator</span>
                                 <span class="portfolio-tag">Photoshop</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Educational Example -->
-                    <div class="portfolio-item" data-category="education">
-                        <img src="insta.jpg" alt="Educational Poster" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Social Media POst</h3>
-                            <p class="portfolio-description">Social Media Post for your Instagram</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Illustrator</span>
-                                <span class="portfolio-tag">Photoshop</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Another Food Poster -->
-                    <div class="portfolio-item" data-category="food">
-                        <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
-                            alt="Burger Poster" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Burger Promo Poster</h3>
-                            <p class="portfolio-description">Appetizing poster for a burger restaurant promotion</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Photoshop</span>
-                                <span class="portfolio-tag">Illustrator</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Another Photo Manipulation -->
                     <div class="portfolio-item" data-category="manipulation">
-                        <img src="https://i.pinimg.com/736x/6b/16/8b/6b168bdcb4f6af5472647376fe8e6791.jpg"
+                        <img src="https://i.pinimg.com/236x/5a/da/69/5ada69a610b475fc5bb1ac329039a9a0.jpg"
                             alt="Creative Manipulation" class="portfolio-image">
                         <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Fantasy Portrait</h3>
-                            <p class="portfolio-description">Magical portrait with surreal elements</p>
+                            <h3 class="portfolio-title">Retro Poster Design</h3>
+                            <p class="portfolio-description">90's poster design with retro vibes
+                            </p>
                             <div class="portfolio-tags">
                                 <span class="portfolio-tag">Photoshop</span>
-                                <span class="portfolio-tag">Digital Art</span>
+                                <span class="portfolio-tag">90's Art</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-        
+                <!-- Check Out More Button -->
+                <div class="check-more hidden">
+                    <h3>Want to see more of my work?</h3>
+                    <a href="https://www.instagram.com/gravico_1316?igsh=YXAzamcwMW14OG9w" class="btn btn-primary">
+                        View Full Portfolio
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                <!-- Food Poster Section -->
-                <div class="portfolio-type hidden">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="type-title">Food Poster Designs</h3>
-                    </div>
+        <!-- Blog Preview Section -->
+        <section id="blog-preview">
+            <div class="container">
+                <h2 class="hidden">From My Blog</h2>
+                <p class="hidden" style="margin-bottom: 40px;">Latest insights and thoughts on design and technology</p>
 
-                    <div class="portfolio-showcase">
-                        <div class="portfolio-item" data-category="food">
-                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sushi-food-poster-design-template-e418d129d9a8d33278b6967f4bb1643b_screen.jpg?ts=1637001270"
-                                alt="Sushi Poster" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Sushi Restaurant Poster</h3>
-                                <p class="portfolio-description">Vibrant poster design for a premium sushi restaurant
-                                </p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                    <span class="portfolio-tag">Illustrator</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="food">
-                            <img src="https://static.vecteezy.com/system/resources/previews/047/537/859/non_2x/delicious-burger-poster-template-for-restaurants-and-promotions-free-psd.png"
-                                alt="Burger Poster" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Burger Promo Poster</h3>
-                                <p class="portfolio-description">Appetizing poster for a burger restaurant promotion</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                    <span class="portfolio-tag">Illustrator</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="food">
-                            <img src="https://img.pikbest.com/origin/05/96/80/773pIkbEsTeyB.jpg!bw700" alt="Food Poster"
-                                class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Restaurant Menu Design</h3>
-                                <p class="portfolio-description">Modern menu design for a fine dining restaurant</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Illustrator</span>
-                                    <span class="portfolio-tag">InDesign</span>
-                                </div>
+                <div class="blog-grid hidden">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <img src="https://encdn.ratopati.com/media/news/tourism_AByN9YWGJN.jpg" alt="Nepal Tourism"
+                            class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Tourism Revival in Nepal: Post-Pandemic Opportunities</h3>
+                            <p class="blog-excerpt">Exploring how Nepal's tourism industry is bouncing back after the
+                                pandemic with new opportunities for sustainable travel...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2025</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('tourism-revival')">Read More
+                                    <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
 
-                
-
-                <!-- Photo Manipulation Section -->
-                <div class="portfolio-type hidden">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <h3 class="type-title">Photo Manipulations</h3>
-                    </div>
-
-                    <div class="portfolio-showcase">
-                        <div class="portfolio-item" data-category="manipulation">
-                            <img src="https://i.pinimg.com/736x/c2/09/95/c209951bf99b4ce72395a1258e805afd.jpg"
-                                alt="Photo Manipulation" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Surreal Landscape</h3>
-                                <p class="portfolio-description">Creative photo manipulation combining multiple elements
-                                </p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                    <span class="portfolio-tag">Photography</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="manipulation">
-                            <img src="https://i.pinimg.com/736x/6b/16/8b/6b168bdcb4f6af5472647376fe8e6791.jpg"
-                                alt="Creative Manipulation" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Fantasy Portrait</h3>
-                                <p class="portfolio-description">Magical portrait with surreal elements</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                    <span class="portfolio-tag">Digital Art</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="manipulation">
-                            <img src="https://www.jotform.com/blog/wp-content/uploads/2022/02/lightbulb-g249fa1220_1920.jpg"
-                                alt="Creative Manipulation" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Conceptual Art</h3>
-                                <p class="portfolio-description">Thought-provoking conceptual artwork</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                </div>
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <img src="https://blog.esewa.com.np/wp-content/uploads/2019/08/1200-11.jpg" alt="Digital Nepal"
+                            class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Digital Transformation in Nepal: Challenges and Progress</h3>
+                            <p class="blog-excerpt">Analyzing Nepal's journey toward digitalization, the challenges
+                                faced, and the progress made in implementing the Digital Nepal Framework...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> July 3, 2025</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('digital-transformation')">Read
+                                    More <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
 
-                
-                <!-- Tech Products Section -->
-                <div class="portfolio-type hidden">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h3 class="type-title">Tech Product Designs</h3>
-                    </div>
-
-                    <div class="portfolio-showcase">
-                        <div class="portfolio-item" data-category="tech">
-                            <img src="https://img.freepik.com/free-psd/new-smartphone-social-media-story-design-template_47987-25437.jpg?semt=ais_hybrid&w=740&q=80"
-                                alt="Tech Product" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Smartphone Ad Design</h3>
-                                <p class="portfolio-description">Product advertisement for a new smartphone</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="tech">
-                            <img src="https://i.pinimg.com/1200x/ea/81/ab/ea81abbd0c34c69ac77b1eb857b04374.jpg"
-                                alt="Tech Product" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Laptop Promo Design</h3>
-                                <p class="portfolio-description">Marketing materials for a new laptop line</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="tech">
-                            <img src="https://i.pinimg.com/736x/d6/15/46/d61546cfefc66846438d4ad8ccc46e29.jpg"
-                                alt="Tech Product" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Smartwatch UI</h3>
-                                <p class="portfolio-description">User interface design for a smartwatch</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                </div>
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <img src="https://shopequo.com/cdn/shop/articles/What_Is_Climate_Change_Causes_Impact_on_Humans_and_Animals.png?v=1698979509&width=1600"
+                            alt="Climate Change" class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Climate Change Impacts on Nepal's Himalayan Ecosystem</h3>
+                            <p class="blog-excerpt">Examining how climate change is affecting Nepal's fragile mountain
+                                ecosystems and what measures are being taken to address these challenges...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> August 12, 2023</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('climate-change')">Read More <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-            
+                <div class="check-more hidden">
+                    <a href="#" class="btn btn-outline" onclick="navigateTo('blog')">
+                        View All Blog Posts
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                <!-- Educational Section -->
-                <div class="portfolio-type hidden">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-graduation-cap"></i>
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="hidden">Get In Touch</h2>
+                <p class="hidden">Feel free to reach out through the form or social media below</p>
+
+                <div class="contact-grid">
+                    <!-- Left Panel - Contact Form -->
+                    <div class="contact-panel hidden">
+                        <h3>Contact Me</h3>
+                        <p>Have something to discuss? Send me a message and let's talk.</p>
+
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" placeholder="Write your message here..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+
+                        <div class="social-connections">
+                            <h4>Connect With Me</h4>
+
+                            <a href="https://www.behance.net/kapilgiri" class="social-item">
+                                <div class="social-icon-large">
+                                    <i class="fab fa-behance"></i>
+                                </div>
+                                <div class="social-text">
+                                    Behance
+                                    <span>View my designs</span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.instagram.com/gravico_1316?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                class="social-item">
+                                <div class="social-icon-large">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div class="social-text">
+                                    Instagram
+                                    <span>See my work</span>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="type-title">Educational Designs</h3>
                     </div>
 
-                    <div class="portfolio-showcase">
-                        <div class="portfolio-item" data-category="education">
-                            <img src="institute.jpg" alt="Educational Poster" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">For Institute</h3>
-                                <p class="portfolio-description">Informative poster For Institute</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Illustrator</span>
-                                    <span class="portfolio-tag">InDesign</span>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Right Panel - Comments Section -->
+                    <div class="contact-panel hidden">
+                        <h3>Testimonials</h3>
+                        <p>What clients and colleagues say about my work.</p>
 
-                        <div class="portfolio-item" data-category="education">
-                            <img src="consultancy.jpg" alt="Educational Poster" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">For Consultancy</h3>
-                                <p class="portfolio-description">Poster Briting the Future For you</p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">Photoshop</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item" data-category="education">
-                            <img src="adaptor.jpg" alt="Educational Poster" class="portfolio-image">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Event Post</h3>
-                                <p class="portfolio-description"></p>
-                                <div class="portfolio-tags">
-                                    <span class="portfolio-tag">PhotoShop</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Check Out More Button -->
-                    <div class="check-more hidden">
-                        <h3>Want to see more of my work?</h3>
-                        <a href="https://www.instagram.com/gravico_1316?igsh=YXAzamcwMW14OG9w" class="btn btn-primary">
-                            View Full Portfolio
-                            <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-                        </a>
-                    </div>
-
-
-                    <!-- Contact Section -->
-                    <section id="contact">
-                        <div class="container">
-                            <h2 class="hidden">Get In Touch</h2>
-                            <p class="hidden">Feel free to reach out through the form or social media below</p>
-
-                            <div class="contact-grid">
-                                <!-- Left Panel - Contact Form -->
-                                <div class="contact-panel hidden">
-                                    <h3>Contact Me</h3>
-                                    <p>Have something to discuss? Send me a message and let's talk.</p>
-
-                                    <form class="contact-form">
-                                        <div class="form-group">
-                                            <label for="name">Your Name</label>
-                                            <input type="text" id="name" placeholder="Enter your name" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="email">Your Email</label>
-                                            <input type="email" id="email" placeholder="Enter your email" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="message">Your Message</label>
-                                            <textarea id="message" placeholder="Write your message here..."
-                                                required></textarea>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Send Message</button>
-                                    </form>
-
-                                    <div class="social-connections">
-                                        <h4>Connect With Me</h4>
-
-                                        <a href="https://www.behance.net/kapilgiri" class="social-item">
-                                            <div class="social-icon-large">
-                                                <i class="fab fa-behance"></i>
-                                            </div>
-                                            <div class="social-text">
-                                                Behance
-                                                <span>View my designs</span>
-                                            </div>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/gravico_1316?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                                            class="social-item">
-                                            <div class="social-icon-large">
-                                                <i class="fab fa-instagram"></i>
-                                            </div>
-                                            <div class="social-text">
-                                                Instagram
-                                                <span>See my work</span>
-                                            </div>
-                                        </a>
+                        <div class="comments-list">
+                            <!-- Testimonial 1 -->
+                            <div class="comment pinned-comment">
+                                <div class="comment-avatar">JD</div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <div class="comment-author">John Doe</div>
+                                        <div class="comment-time">1 week ago</div>
+                                    </div>
+                                    <div class="comment-text">
+                                        Amazing work on the project! The visuals really make stand out. How long did
+                                        it take you to develop this skill?
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Right Panel - Comments Section -->
-                                <div class="contact-panel hidden">
-                                    <h3>Comments</h3>
-                                    <p>Have a question? Send me a message and I'll reply as soon as possible.</p>
+                            <!-- Testimonial 2 -->
+                            <div class="comment">
+                                <div class="comment-avatar">SA</div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <div class="comment-author">Sarah A.</div>
+                                        <div class="comment-time">2 weeks ago</div>
+                                    </div>
+                                    <div class="comment-text">
+                                        I love your motion graphics work! Do you offer video editing services for
+                                        YouTube channels? I'd love to discuss a potential collaboration.
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <form class="comment-form">
-                                        <div class="form-group">
-                                            <label for="comment-name">Name</label>
-                                            <input type="text" id="comment-name" placeholder="Enter your name" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="comment-message">Message</label>
-                                            <textarea id="comment-message" placeholder="Write your message here..."
-                                                required></textarea>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Post Comment</button>
-                                    </form>
-
-                                    <div class="comments-list">
-                                        <!-- Pinned Comment -->
-                                        <div class="comment pinned-comment">
-                                            <div class="comment-avatar">Gv</div>
-                                            <div class="comment-content">
-                                                <div class="comment-header">
-                                                    <div class="comment-author">Gravico</div>
-                                                    <div class="comment-time">2 days ago</div>
-                                                    <div class="comment-badge">Admin</div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    Thanks for visiting my portfolio! I'm currently available for
-                                                    freelance
-                                                    projects and collaborations. Feel free to reach out if you have any
-                                                    questions or if you'd like to work together.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Comment 1 -->
-                                        <div class="comment">
-                                            <div class="comment-avatar">JD</div>
-                                            <div class="comment-content">
-                                                <div class="comment-header">
-                                                    <div class="comment-author">John Doe</div>
-                                                    <div class="comment-time">1 week ago</div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    Amazing work on the project! The visuals really make stand out. How
-                                                    long did
-                                                    it take you to develop this skill ?
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Comment 2 -->
-                                        <div class="comment">
-                                            <div class="comment-avatar">SA</div>
-                                            <div class="comment-content">
-                                                <div class="comment-header">
-                                                    <div class="comment-author">Sarah A.</div>
-                                                    <div class="comment-time">2 weeks ago</div>
-                                                </div>
-                                                <div class="comment-text">
-                                                    I love your motion graphics work! Do you offer video editing
-                                                    services for
-                                                    YouTube channels? I'd love to discuss a potential collaboration.
-                                                </div>
-                                            </div>
-                                        </div>
+                            <!-- Testimonial 3 -->
+                            <div class="comment">
+                                <div class="comment-avatar">RM</div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <div class="comment-author">Raj M.</div>
+                                        <div class="comment-time">3 weeks ago</div>
+                                    </div>
+                                    <div class="comment-text">
+                                        Kapil designed an amazing logo and brand identity for our startup. Highly
+                                        recommended for his creativity and professionalism.
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
+            </div>
+        </section>
+    </div>
 
-                <!-- Floating Check More Button -->
-                <div class="floating-check-more" onclick="navigateTo('home')">
-                    <i class="fas fa-eye"></i>
-                </div>
+    <!-- Blog Page -->
+    <div id="blog-page" class="page">
+        <section id="blog">
+            <div class="container">
+                <h2 class="hidden">KapilBlogs</h2>
+                <p class="hidden" style="margin-bottom: 40px;">Thoughts, insights, and discussions on various topics</p>
 
-                <footer>
-                    © 2025 Gravico™. All Rights Reserved.
-                </footer>
+                <div class="blog-grid hidden">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <img src="https://encdn.ratopati.com/media/news/tourism_AByN9YWGJN.jpg" alt="Nepal Tourism"
+                            class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Tourism Revival in Nepal: Post-Pandemic Opportunities</h3>
+                            <p class="blog-excerpt">Exploring how Nepal's tourism industry is bouncing back after the
+                                pandemic with new opportunities for sustainable travel and adventure tourism.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2023</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('tourism-revival')">Read More
+                                    <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Project Modal -->
-                <div id="projectModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal()">&times;</span>
-                        <img id="modalImage" class="modal-image" src="" alt="">
-                        <div class="modal-body">
-                            <h2 id="modalTitle" class="modal-title"></h2>
-                            <p id="modalDescription" class="modal-description"></p>
-                            <div class="modal-tech">
-                                <!-- Tech tags will be added here by JavaScript -->
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                        <img src="https://blog.esewa.com.np/wp-content/uploads/2019/08/1200-11.jpg" alt="Digital Nepal"
+                            class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Digital Transformation in Nepal: Challenges and Progress</h3>
+                            <p class="blog-excerpt">Analyzing Nepal's journey toward digitalization, the challenges
+                                faced, and the progress made in implementing the Digital Nepal Framework.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> July 3, 2023</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('digital-transformation')">Read
+                                    More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                        <img src="https://shopequo.com/cdn/shop/articles/What_Is_Climate_Change_Causes_Impact_on_Humans_and_Animals.png?v=1698979509&width=1600"
+                            alt="Climate Change" class="blog-image">
+                        <div class="blog-content">
+                            <h3 class="blog-title">Climate Change Impacts on Nepal's Himalayan Ecosystem</h3>
+                            <p class="blog-excerpt">Examining how climate change is affecting Nepal's fragile mountain
+                                ecosystems and what measures are being taken to address these challenges.</p>
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> August 12, 2023</span>
+                                <a href="#" class="blog-read-more" onclick="openBlogPost('climate-change')">Read More <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <script>
-                    // Navigation between pages
-                    function navigateTo(pageId) {
-                        // Hide all pages
-                        document.querySelectorAll('.page').forEach(page => {
-                            page.classList.remove('active');
-                        });
+                <!-- Blog Content -->
+                <div class="hidden" style="margin-top: 60px;">
+                    <h3 style="margin-bottom: 30px;">Hot Topics in Nepal: A Closer Look</h3>
 
-                        // Show selected page
-                        document.getElementById(`${pageId}-page`).classList.add('active');
+                    <div class="blog-content-section"
+                        style="background-color: var(--card-bg); padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                        <h4 style="color: var(--primary); margin-bottom: 20px;">Tourism Revival in Nepal</h4>
+                        <p>Nepal's tourism industry, which contributes significantly to the country's economy, was
+                            severely impacted by the COVID-19 pandemic. However, 2023 has seen a remarkable recovery
+                            with visitor numbers steadily increasing.</p>
 
-                        // Update active nav link
-                        document.querySelectorAll('.nav-links a').forEach(link => {
-                            link.classList.remove('active');
-                        });
+                        <p>The government's "Visit Nepal 2023" campaign has been instrumental in this revival, focusing
+                            on promoting Nepal as a safe and attractive destination. Adventure tourism, including
+                            trekking, mountaineering, and paragliding, has seen particular growth. The Everest region,
+                            Annapurna Circuit, and newly opened trails in remote areas are attracting trekkers from
+                            around the world.</p>
 
-                        // Find and activate the corresponding nav link
-                        const navLinks = document.querySelectorAll('.nav-links a');
-                        for (let link of navLinks) {
-                            if (link.textContent.toLowerCase() === pageId ||
-                                (link.textContent === 'Home' && pageId === 'home')) {
-                                link.classList.add('active');
-                                break;
-                            }
-                        }
+                        <p>Sustainable tourism practices are becoming increasingly important, with more operators
+                            adopting eco-friendly approaches and community-based tourism models that directly benefit
+                            local populations.</p>
+                    </div>
 
-                        // Scroll to top
-                        window.scrollTo(0, 0);
+                    <div class="blog-content-section"
+                        style="background-color: var(--card-bg); padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                        <h4 style="color: var(--primary); margin-bottom: 20px;">Digital Nepal Framework</h4>
+                        <p>Nepal's digital transformation journey has gained momentum with the implementation of the
+                            Digital Nepal Framework. This ambitious initiative aims to leverage technology to drive
+                            economic growth, improve service delivery, and enhance governance.</p>
 
-                        // Close mobile menu if open
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
+                        <p>Key areas of focus include:</p>
+                        <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
+                            <li>Digital infrastructure development, including expansion of broadband internet access
+                            </li>
+                            <li>E-governance initiatives to reduce bureaucracy and corruption</li>
+                            <li>Digital literacy programs to bridge the digital divide</li>
+                            <li>Support for tech startups and innovation hubs</li>
+                            <li>Cybersecurity measures to protect digital assets</li>
+                        </ul>
+
+                        <p>Despite progress, challenges remain, including limited infrastructure in rural areas,
+                            electricity shortages, and need for greater digital literacy among the population.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Individual Blog Post Pages -->
+    <div id="blog-tourism-revival" class="page">
+        <section id="blog-detail">
+            <div class="container">
+                <a href="#" class="back-to-blog" onclick="navigateTo('blog')">
+                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Blog
+                </a>
+
+                <div class="blog-detail-header">
+                    <h1 class="hidden">Tourism Revival in Nepal: Post-Pandemic Opportunities</h1>
+                    <div class="blog-meta" style="justify-content: center; margin-bottom: 20px;">
+                        <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2023</span>
+                    </div>
+                </div>
+
+                <img src="https://encdn.ratopati.com/media/news/tourism_AByN9YWGJN.jpg" alt="Nepal Tourism"
+                    class="blog-detail-image hidden">
+
+                <div class="blog-detail-content">
+                    <div class="blog-detail-section hidden">
+                        <h2>Introduction</h2>
+                        <p>Nepal's tourism industry, which contributes significantly to the country's economy, was
+                            severely impacted by the COVID-19 pandemic. However, 2023 has seen a remarkable recovery
+                            with visitor numbers steadily increasing. The government's "Visit Nepal 2023" campaign has
+                            been instrumental in this revival, focusing on promoting Nepal as a safe and attractive
+                            destination.</p>
+
+                        <p class="highlight-text">Adventure tourism, including trekking, mountaineering, and
+                            paragliding, has seen particular growth.</p>
+
+                        <p>The Everest region, Annapurna Circuit, and newly opened trails in remote areas are attracting
+                            trekkers from around the world. Sustainable tourism practices are becoming increasingly
+                            important, with more operators adopting eco-friendly approaches and community-based tourism
+                            models that directly benefit local populations.</p>
+                    </div>
+
+                    <div class="blog-detail-section hidden">
+                        <h2>Post-Pandemic Recovery</h2>
+                        <p>After the devastating impact of the pandemic on global travel, Nepal has been working
+                            diligently to rebuild its tourism sector. The country has implemented comprehensive health
+                            and safety protocols to reassure visitors, and these efforts are paying off.</p>
+
+                        <img src="https://annapurnaexpress.prixacdn.net/media/albums/tourists.jpg_wWdVikeAvY.jpeg"
+                            alt="Tourists in Nepal" class="blog-detail-image-small">
+
+                        <p>Key factors contributing to the recovery include:</p>
+                        <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
+                            <li>Enhanced health and safety measures at all tourist facilities</li>
+                            <li>Digitalization of visa processes and trekking permits</li>
+                            <li>Strategic marketing campaigns targeting key source markets</li>
+                            <li>Development of new tourism products and experiences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Individual Blog Post Pages -->
+    <div id="blog-digital-transformation" class="page">
+        <section id="blog-detail">
+            <div class="container">
+                <a href="#" class="back-to-blog" onclick="navigateTo('blog')">
+                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Blog
+                </a>
+
+                <div class="blog-detail-header">
+                    <h1 class="hidden">Digital Transformation in Nepal: Challenges and Progress</h1>
+                    <div class="blog-meta" style="justify-content: center; margin-bottom: 20px;">
+                        <span class="blog-date"><i class="far fa-calendar"></i> July 5, 2025</span>
+                    </div>
+                </div>
+
+                <img src="https://encdn.ratopati.com/media/news/tourism_AByN9YWGJN.jpg" alt="Nepal Tourism"
+                    class="blog-detail-image hidden">
+
+                <div class="blog-detail-content">
+                    <div class="blog-detail-section hidden">
+                        <h2>Introduction</h2>
+                        <p>Nepal's tourism industry, which contributes significantly to the country's economy, was
+                            severely impacted by the COVID-19 pandemic. However, 2023 has seen a remarkable recovery
+                            with visitor numbers steadily increasing. The government's "Visit Nepal 2023" campaign has
+                            been instrumental in this revival, focusing on promoting Nepal as a safe and attractive
+                            destination.</p>
+
+                        <p class="highlight-text">Adventure tourism, including trekking, mountaineering, and
+                            paragliding, has seen particular growth.</p>
+
+                        <p>The Everest region, Annapurna Circuit, and newly opened trails in remote areas are attracting
+                            trekkers from around the world. Sustainable tourism practices are becoming increasingly
+                            important, with more operators adopting eco-friendly approaches and community-based tourism
+                            models that directly benefit local populations.</p>
+                    </div>
+
+                    <div class="blog-detail-section hidden">
+                        <h2>Post-Pandemic Recovery</h2>
+                        <p>After the devastating impact of the pandemic on global travel, Nepal has been working
+                            diligently to rebuild its tourism sector. The country has implemented comprehensive health
+                            and safety protocols to reassure visitors, and these efforts are paying off.</p>
+
+                        <img src="https://annapurnaexpress.prixacdn.net/media/albums/tourists.jpg_wWdVikeAvY.jpeg"
+                            alt="Tourists in Nepal" class="blog-detail-image-small">
+
+                        <p>Key factors contributing to the recovery include:</p>
+                        <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px;">
+                            <li>Enhanced health and safety measures at all tourist facilities</li>
+                            <li>Digitalization of visa processes and trekking permits</li>
+                            <li>Strategic marketing campaigns targeting key source markets</li>
+                            <li>Development of new tourism products and experiences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Check More Button -->
+    <div class="floating-check-more" onclick="navigateTo('home')">
+        <i class="fas fa-eye"></i>
+    </div>
+
+    <footer>
+        © 2025 Kapil Giri. All Rights Reserved. | <a href="#" style="color: var(--primary);"
+            onclick="navigateTo('blog')">KapilBlogs</a>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalDescription" class="modal-description"></p>
+                <div class="modal-tech">
+                    <!-- Tech tags will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Remove landing page after animation completes
+        const landingPage = document.getElementById('landing-page');
+        landingPage.addEventListener('animationend', function (e) {
+            if (e.animationName === 'fadeOut') {
+                this.style.display = 'none';
+            }
+        });
+
+        // Fallback: if animation doesn't fire, remove after 3 seconds
+        setTimeout(() => {
+            landingPage.style.display = 'none';
+        }, 3000);
+
+        // Navigation between pages
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(`${pageId}-page`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                // If page doesn't exist, default to home
+                document.getElementById('home-page').classList.add('active');
+            }
+
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${pageId}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Close mobile menu if open
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.hamburger').classList.remove('active');
+        }
+
+        // Open individual blog post
+        function openBlogPost(postId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show blog post page
+            const blogPostPage = document.getElementById(`blog-${postId}`);
+            if (blogPostPage) {
+                blogPostPage.classList.add('active');
+            } else {
+                // If blog post doesn't exist, default to blog page
+                document.getElementById('blog-page').classList.add('active');
+            }
+
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent === 'Blog') {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Close mobile menu if open
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.hamburger').classList.remove('active');
+        }
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach(el => observer.observe(el));
+
+        // Portfolio category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const projectCards = document.querySelectorAll('.portfolio-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active category button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
                     }
+                });
+            });
+        });
 
-                    // Navbar scroll effect
-                    const navbar = document.querySelector('.navbar');
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            navbar.classList.add('scrolled');
-                        } else {
-                            navbar.classList.remove('scrolled');
-                        }
-                    });
+        // Typewriter effect for full titles
+        const typewriterElement = document.getElementById('typewriter-title');
+        const professions = [
+            'Video Editor',
+            'Motion Designer',
+            'Graphics Designer'
+        ];
+        let professionIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
 
-                    // Mobile menu toggle
-                    const hamburger = document.querySelector('.hamburger');
-                    const navLinks = document.querySelector('.nav-links');
+        function typeWriter() {
+            const currentProfession = professions[professionIndex];
 
-                    hamburger.addEventListener('click', () => {
-                        navLinks.classList.toggle('active');
-                        hamburger.classList.toggle('active');
-                    });
+            if (isDeleting) {
+                typewriterElement.textContent = currentProfession.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentProfession.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-                    // Close mobile menu when clicking a link
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.addEventListener('click', () => {
-                            navLinks.classList.remove('active');
-                            hamburger.classList.remove('active');
-                        });
-                    });
+            if (!isDeleting && charIndex === currentProfession.length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(typeWriter, 2000); // Pause at end of word
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                professionIndex = (professionIndex + 1) % professions.length;
+                setTimeout(typeWriter, 500); // Pause before typing next word
+            } else {
+                const typingSpeed = isDeleting ? 50 : 150;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
 
-                    // Scroll reveal animation
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('show');
-                            }
-                        });
-                    });
+        // Start the typewriter effect
+        setTimeout(typeWriter, 1000);
 
-                    const hiddenElements = document.querySelectorAll('.hidden');
-                    hiddenElements.forEach(el => observer.observe(el));
+        // Simple form validation
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-                    // Active link highlighting
-                    const sections = document.querySelectorAll('section');
-                    const navItems = document.querySelectorAll('.nav-links a');
+                // Get all required inputs
+                const inputs = this.querySelectorAll('input[required], textarea[required]');
+                let isValid = true;
 
-                    window.addEventListener('scroll', () => {
-                        let current = '';
-
-                        sections.forEach(section => {
-                            const sectionTop = section.offsetTop;
-                            const sectionHeight = section.clientHeight;
-
-                            if (pageYOffset >= sectionTop - 300) {
-                                current = section.getAttribute('id');
-                            }
-                        });
-
-                        navItems.forEach(item => {
-                            item.classList.remove('active');
-                            if (item.getAttribute('href') === `#${current}`) {
-                                item.classList.add('active');
-                            }
-                        });
-                    });
-
-                    // Portfolio category filtering
-                    const categoryBtns = document.querySelectorAll('.category-btn');
-                    const projectCards = document.querySelectorAll('.portfolio-item');
-
-                    categoryBtns.forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            // Update active category button
-                            categoryBtns.forEach(b => b.classList.remove('active'));
-                            btn.classList.add('active');
-
-                            const category = btn.getAttribute('data-category');
-
-                            // Filter projects
-                            projectCards.forEach(card => {
-                                if (category === 'all' || card.getAttribute('data-category') === category) {
-                                    card.style.display = 'block';
-                                } else {
-                                    card.style.display = 'none';
-                                }
-                            });
-                        });
-                    });
-
-                    // Typewriter effect for full titles
-                    const typewriterElement = document.getElementById('typewriter-title');
-                    const professions = [
-                        'Video Editor',
-                        'Motion Designer',
-                        'Graphics Designer'
-                    ];
-                    let professionIndex = 0;
-                    let charIndex = 0;
-                    let isDeleting = false;
-                    let isEnd = false;
-
-                    function typeWriter() {
-                        const currentProfession = professions[professionIndex];
-
-                        if (isDeleting) {
-                            typewriterElement.textContent = currentProfession.substring(0, charIndex - 1);
-                            charIndex--;
-                        } else {
-                            typewriterElement.textContent = currentProfession.substring(0, charIndex + 1);
-                            charIndex++;
-                        }
-
-                        if (!isDeleting && charIndex === currentProfession.length) {
-                            isEnd = true;
-                            isDeleting = true;
-                            setTimeout(typeWriter, 2000); // Pause at end of word
-                        } else if (isDeleting && charIndex === 0) {
-                            isDeleting = false;
-                            professionIndex = (professionIndex + 1) % professions.length;
-                            setTimeout(typeWriter, 500); // Pause before typing next word
-                        } else {
-                            const typingSpeed = isDeleting ? 50 : 150;
-                            setTimeout(typeWriter, typingSpeed);
-                        }
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.style.borderColor = '#ff4757';
+                        isValid = false;
+                    } else {
+                        input.style.borderColor = '';
                     }
+                });
 
-                    // Start the typewriter effect
-                    setTimeout(typeWriter, 1000);
+                if (isValid) {
+                    // In a real app, you would send the form data to a server here
+                    alert('Form submitted successfully!');
+                    this.reset();
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
 
-                    // Simple form validation
-                    document.querySelectorAll('form').forEach(form => {
-                        form.addEventListener('submit', function (e) {
-                            e.preventDefault();
+        // Project Modal Functions
+        function openModal(title, imageSrc, description, tags) {
+            const modal = document.getElementById('projectModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalImage = document.getElementById('modalImage');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalTech = document.querySelector('.modal-tech');
 
-                            // Get all required inputs
-                            const inputs = this.querySelectorAll('input[required], textarea[required]');
-                            let isValid = true;
+            modalTitle.textContent = title;
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            modalDescription.textContent = description;
 
-                            inputs.forEach(input => {
-                                if (!input.value.trim()) {
-                                    input.style.borderColor = '#ff4757';
-                                    isValid = false;
-                                } else {
-                                    input.style.borderColor = '';
-                                }
-                            });
+            // Clear existing tags
+            modalTech.innerHTML = '';
 
-                            if (isValid) {
-                                // In a real app, you would send the form data to a server here
-                                alert('Form submitted successfully!');
-                                this.reset();
-                            } else {
-                                alert('Please fill in all required fields.');
-                            }
-                        });
-                    });
+            // Add new tags
+            tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'modal-tech-item';
+                tagElement.textContent = tag;
+                modalTech.appendChild(tagElement);
+            });
 
-                    // File upload display
-                    document.querySelectorAll('.file-upload input').forEach(input => {
-                        input.addEventListener('change', function () {
-                            const label = this.closest('.file-upload-label');
-                            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
-                            label.querySelector('.file-upload-text span').textContent = fileName;
-                        });
-                    });
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-                    // Project Modal Functions
-                    function openModal(title, imageSrc, description, tags) {
-                        const modal = document.getElementById('projectModal');
-                        const modalTitle = document.getElementById('modalTitle');
-                        const modalImage = document.getElementById('modalImage');
-                        const modalDescription = document.getElementById('modalDescription');
-                        const modalTech = document.querySelector('.modal-tech');
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-                        modalTitle.textContent = title;
-                        modalImage.src = imageSrc;
-                        modalImage.alt = title;
-                        modalDescription.textContent = description;
+        // Close modal when clicking outside the content
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
 
-                        // Clear existing tags
-                        modalTech.innerHTML = '';
+        // Floating button visibility
+        function handleFloatingButton() {
+            const floatingBtn = document.querySelector('.floating-check-more');
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                const portfolioRect = portfolioSection.getBoundingClientRect();
+                if (window.scrollY > portfolioRect.top + 300) {
+                    floatingBtn.classList.add('visible');
+                } else {
+                    floatingBtn.classList.remove('visible');
+                }
+            }
+        }
 
-                        // Add new tags
-                        tags.forEach(tag => {
-                            const tagElement = document.createElement('span');
-                            tagElement.className = 'modal-tech-item';
-                            tagElement.textContent = tag;
-                            modalTech.appendChild(tagElement);
-                        });
+        // Initialize the page (show home page by default)
+        document.addEventListener('DOMContentLoaded', function () {
+            navigateTo('home');
 
-                        modal.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    }
+            // Add click handlers for portfolio items
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const title = this.querySelector('.portfolio-title').textContent;
+                    const imageSrc = this.querySelector('.portfolio-image').src;
+                    const description = this.querySelector('.portfolio-description').textContent;
+                    const tags = Array.from(this.querySelectorAll('.portfolio-tag')).map(tag => tag.textContent);
 
-                    function closeModal() {
-                        const modal = document.getElementById('projectModal');
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
+                    openModal(title, imageSrc, description, tags);
+                });
+            });
 
-                    // Close modal when clicking outside the content
-                    window.addEventListener('click', function (event) {
-                        const modal = document.getElementById('projectModal');
-                        if (event.target === modal) {
-                            closeModal();
-                        }
-                    });
-
-                    // Before/After Comparison Slider
-                    function setupComparisonSliders() {
-                        const sliders = document.querySelectorAll('.comparison-slider');
-
-                        sliders.forEach(slider => {
-                            const container = slider.parentElement;
-                            const beforeImage = container.querySelector('.before-image');
-                            let isDragging = false;
-
-                            function handleMove(e) {
-                                if (!isDragging) return;
-
-                                const containerRect = container.getBoundingClientRect();
-                                let x = e.clientX - containerRect.left;
-
-                                // Keep within bounds
-                                x = Math.max(0, Math.min(x, containerRect.width));
-
-                                // Calculate percentage
-                                const percent = (x / containerRect.width) * 100;
-
-                                // Update slider position and image clip
-                                slider.style.left = `${percent}%`;
-                                beforeImage.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
-                            }
-
-                            slider.addEventListener('mousedown', () => {
-                                isDragging = true;
-                            });
-
-                            window.addEventListener('mousemove', handleMove);
-                            window.addEventListener('mouseup', () => {
-                                isDragging = false;
-                            });
-
-                            // Touch support
-                            slider.addEventListener('touchstart', () => {
-                                isDragging = true;
-                            });
-
-                            window.addEventListener('touchmove', (e) => {
-                                handleMove(e.touches[0]);
-                            });
-
-                            window.addEventListener('touchend', () => {
-                                isDragging = false;
-                            });
-                        });
-                    }
-
-                    // Floating button visibility
-                    function handleFloatingButton() {
-                        const floatingBtn = document.querySelector('.floating-check-more');
-                        const portfolioSection = document.getElementById('portfolio');
-                        const portfolioRect = portfolioSection.getBoundingClientRect();
-
-                        if (window.scrollY > portfolioRect.top + 300) {
-                            floatingBtn.classList.add('visible');
-                        } else {
-                            floatingBtn.classList.remove('visible');
-                        }
-                    }
-
-                    // Initialize the page (show home page by default)
-                    document.addEventListener('DOMContentLoaded', function () {
-                        navigateTo('home');
-                        setupComparisonSliders();
-
-                        // Add click handlers for portfolio items
-                        document.querySelectorAll('.portfolio-item').forEach(item => {
-                            item.addEventListener('click', function () {
-                                const title = this.querySelector('.portfolio-title').textContent;
-                                const imageSrc = this.querySelector('.portfolio-image').src;
-                                const description = this.querySelector('.portfolio-description').textContent;
-                                const tags = Array.from(this.querySelectorAll('.portfolio-tag')).map(tag => tag.textContent);
-
-                                openModal(title, imageSrc, description, tags);
-                            });
-                        });
-
-                        // Handle floating button visibility
-                        window.addEventListener('scroll', handleFloatingButton);
-                        handleFloatingButton(); // Initial check
-                    });
-                </script>
+            // Handle floating button visibility
+            window.addEventListener('scroll', handleFloatingButton);
+            handleFloatingButton(); // Initial check
+        });
+    </script>
 </body>
 
 </html>
